@@ -1,30 +1,31 @@
-import network from "../sources/Network";
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Network = _interopRequireDefault(require("../sources/Network"));
+
 const baseURL = `https://test.ofd.astralnalog.ru/api/v4.2/`;
-export default class OrganizationAPI {
+
+class OrganizationAPI {
   constructor() {
     this.baseUrl = baseURL;
   }
 
-  getAllCars(apiKey = "5cfc802d2ebb375a4b05500a430659dd", page = 1, count = 10) {
-    return function _callee() {
-      var data;
-      return regeneratorRuntime.async(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            data = {
-              api_key: apiKey,
-              page,
-              count
-            };
-            return _context.abrupt("return", network.post('organization.list', data));
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      });
-    }();
+  async getAllCars(apiKey = "5cfc802d2ebb375a4b05500a430659dd", page = 1, count = 10) {
+    const data = {
+      api_key: apiKey,
+      page,
+      count
+    };
+    return _Network.default.post('organization.list', data);
   }
 
 }
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zZXJ2aWNlcy9Pcmdhbml6YXRpb25zQVBJLmpzIl0sIm5hbWVzIjpbIm5ldHdvcmsiLCJiYXNlVVJMIiwiT3JnYW5pemF0aW9uQVBJIiwiY29uc3RydWN0b3IiLCJiYXNlVXJsIiwiZ2V0QWxsQ2FycyIsImFwaUtleSIsInBhZ2UiLCJjb3VudCIsImRhdGEiLCJhcGlfa2V5IiwicG9zdCJdLCJtYXBwaW5ncyI6IkFBQUEsT0FBT0EsT0FBUDtBQUVBLE1BQU1DLE9BQU8sR0FBSSwyQ0FBakI7QUFFQSxlQUFlLE1BQU1DLGVBQU4sQ0FBc0I7QUFDakNDLEVBQUFBLFdBQVcsR0FDWDtBQUNJLFNBQUtDLE9BQUwsR0FBZUgsT0FBZjtBQUNIOztBQUVLSSxFQUFBQSxVQUFOLENBQWlCQyxNQUFNLEdBQUMsa0NBQXhCLEVBQTREQyxJQUFJLEdBQUMsQ0FBakUsRUFBb0VDLEtBQUssR0FBQyxFQUExRSxFQUE4RTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDcEVDLFlBQUFBLElBRG9FLEdBQzdEO0FBQUNDLGNBQUFBLE9BQU8sRUFBRUosTUFBVjtBQUFrQkMsY0FBQUEsSUFBbEI7QUFBd0JDLGNBQUFBO0FBQXhCLGFBRDZEO0FBQUEsNkNBRW5FUixPQUFPLENBQUNXLElBQVIsQ0FBYSxtQkFBYixFQUFrQ0YsSUFBbEMsQ0FGbUU7O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBRzdFOztBQVRnQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBuZXR3b3JrIGZyb20gJy4uL3NvdXJjZXMvTmV0d29yayc7XHJcblxyXG5jb25zdCBiYXNlVVJMID0gYGh0dHBzOi8vdGVzdC5vZmQuYXN0cmFsbmFsb2cucnUvYXBpL3Y0LjIvYFxyXG5cclxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgT3JnYW5pemF0aW9uQVBJIHtcclxuICAgIGNvbnN0cnVjdG9yKClcclxuICAgIHtcclxuICAgICAgICB0aGlzLmJhc2VVcmwgPSBiYXNlVVJMXHJcbiAgICB9XHJcblxyXG4gICAgYXN5bmMgZ2V0QWxsQ2FycyhhcGlLZXk9XCI1Y2ZjODAyZDJlYmIzNzVhNGIwNTUwMGE0MzA2NTlkZFwiLCBwYWdlPTEsIGNvdW50PTEwKSB7XHJcbiAgICAgICAgY29uc3QgZGF0YSA9IHthcGlfa2V5OiBhcGlLZXksIHBhZ2UsIGNvdW50fTtcclxuICAgICAgICByZXR1cm4gbmV0d29yay5wb3N0KCdvcmdhbml6YXRpb24ubGlzdCcsIGRhdGEpOyBcclxuICAgIH1cclxufSAiXX0=
+
+exports.default = OrganizationAPI;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zZXJ2aWNlcy9Pcmdhbml6YXRpb25zQVBJLmpzIl0sIm5hbWVzIjpbImJhc2VVUkwiLCJPcmdhbml6YXRpb25BUEkiLCJjb25zdHJ1Y3RvciIsImJhc2VVcmwiLCJnZXRBbGxDYXJzIiwiYXBpS2V5IiwicGFnZSIsImNvdW50IiwiZGF0YSIsImFwaV9rZXkiLCJuZXR3b3JrIiwicG9zdCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQUE7O0FBRUEsTUFBTUEsT0FBTyxHQUFJLDJDQUFqQjs7QUFFZSxNQUFNQyxlQUFOLENBQXNCO0FBQ2pDQyxFQUFBQSxXQUFXLEdBQ1g7QUFDSSxTQUFLQyxPQUFMLEdBQWVILE9BQWY7QUFDSDs7QUFFRCxRQUFNSSxVQUFOLENBQWlCQyxNQUFNLEdBQUMsa0NBQXhCLEVBQTREQyxJQUFJLEdBQUMsQ0FBakUsRUFBb0VDLEtBQUssR0FBQyxFQUExRSxFQUE4RTtBQUMxRSxVQUFNQyxJQUFJLEdBQUc7QUFBQ0MsTUFBQUEsT0FBTyxFQUFFSixNQUFWO0FBQWtCQyxNQUFBQSxJQUFsQjtBQUF3QkMsTUFBQUE7QUFBeEIsS0FBYjtBQUNBLFdBQU9HLGlCQUFRQyxJQUFSLENBQWEsbUJBQWIsRUFBa0NILElBQWxDLENBQVA7QUFDSDs7QUFUZ0MiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgbmV0d29yayBmcm9tICcuLi9zb3VyY2VzL05ldHdvcmsnO1xyXG5cclxuY29uc3QgYmFzZVVSTCA9IGBodHRwczovL3Rlc3Qub2ZkLmFzdHJhbG5hbG9nLnJ1L2FwaS92NC4yL2BcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGNsYXNzIE9yZ2FuaXphdGlvbkFQSSB7XHJcbiAgICBjb25zdHJ1Y3RvcigpXHJcbiAgICB7XHJcbiAgICAgICAgdGhpcy5iYXNlVXJsID0gYmFzZVVSTFxyXG4gICAgfVxyXG5cclxuICAgIGFzeW5jIGdldEFsbENhcnMoYXBpS2V5PVwiNWNmYzgwMmQyZWJiMzc1YTRiMDU1MDBhNDMwNjU5ZGRcIiwgcGFnZT0xLCBjb3VudD0xMCkge1xyXG4gICAgICAgIGNvbnN0IGRhdGEgPSB7YXBpX2tleTogYXBpS2V5LCBwYWdlLCBjb3VudH07XHJcbiAgICAgICAgcmV0dXJuIG5ldHdvcmsucG9zdCgnb3JnYW5pemF0aW9uLmxpc3QnLCBkYXRhKTsgXHJcbiAgICB9XHJcbn0gIl19
