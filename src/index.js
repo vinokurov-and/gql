@@ -1,4 +1,4 @@
-import {OrganizationAPI} from './src/services';
+import {OrganizationAPI} from './services';
 const { ApolloServer, gql } = require('apollo-server');
 
 const typeDefs = gql`
@@ -92,6 +92,6 @@ const server = new ApolloServer({
     }
 })
 
-server.listen(4000).then(({url})=>{
+server.listen(5001).then(({url})=>{
     console.log(`Server ready at ${url}`)
 })

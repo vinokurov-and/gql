@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/services/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;AAAA","sourcesContent":["import OrganizationAPI from \"./OrganizationsAPI\";\r\n\r\nexport {OrganizationAPI};"],"file":"index.js"}
