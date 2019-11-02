@@ -8,8 +8,7 @@ export default class OrganizationAPI {
         this.baseUrl = baseURL
     }
 
-    async getAllCars(apiKey="5cfc802d2сebb375a4b05500a430659dd", page=1, count=10) {
-        const data = {api_key: apiKey, page, count};
-        return network.post('organization.list', data); 
+    async getAllCars(data) {
+        return network.post('organization.list', {page: 1, count: 10, ...data}); 
     }
 } 

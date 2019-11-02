@@ -6,6 +6,6 @@ export const ErrorHandlingAPI = promise => {
       throw new ApolloError("Произошла ошибка", response.data.error_code, {
         description: response.data.description
       });
-    return response.data.result.organizations;
+    return response.data.result;
   });
 };

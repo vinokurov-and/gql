@@ -61,18 +61,28 @@ const typeDefs = gql`
     totalCount: String
     user_id: String
   }
+  type OrganizationsResult {
+    organizations: [Organization]
+    totalCount: Int
+  }
   type Query {
     organization(number: String!): Organization
-    organizations: [Organization]
-    test: String
+    allOrganizations(
+      api_key: String!
+      count: Int
+      page: Int
+    ): OrganizationsResult
     authenticationError: String
   }
 `;
 
 const resolvers = {
   Query: {
-    organizations: (root, args, { dataSources }) =>
-      ErrorHandlingAPI(dataSources.OrganizationService.getAllCars())
+    allOrganizations: (root, args, context) => {
+      return ErrorHandlingAPI(
+        context.dataSources.OrganizationService.getAllCars(args)
+      );
+    }
   }
 };
 
@@ -83,18 +93,18 @@ const server = new ApolloServer({
     OrganizationService: new OrganizationAPI()
   }),
   formatError: err => {
+    return err;
     return {
       ok: false,
       description: err.extensions.description,
       error_code: err.extensions.code
     };
-    console.log("ERROR", err);
-    return err;
   },
   formatResponse: response => {
-    //console.log("formatResponse", response);
+    // console.log(response);
     return response;
   },
+
   debug: false
 });
 
