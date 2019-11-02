@@ -35,7 +35,7 @@ network.interceptors.request.use(config => {
   return config;
 });
 network.interceptors.response.use(response => {
-  console.log(response);
+  // console.log(response);
   return response;
 });
 var _default = network;

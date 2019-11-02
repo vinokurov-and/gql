@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {isObject, isString} from '../utils';
+import qs from 'qs';
 
 
 const baseURL = `https://test.ofd.astralnalog.ru/api/v4.2/`
@@ -9,9 +10,6 @@ const network = axios.create({
   baseURL,
   headers: {
     'astral-token': ASTRAL_TOKEN,
-     common: {
-      "Content-Type": "application/json"
-    }
   },
 });
 
@@ -19,7 +17,7 @@ network.interceptors.request.use(config=>{
   if (config.data)
   {
   if (isObject(config.data)) 
-    config.data = qs.stringify({...config.data});
+    config.headers["Content-Type"] = "application/json";
   if (isString(config.data))
     config.data = qs.parse(config.data); 
   }
@@ -28,7 +26,6 @@ network.interceptors.request.use(config=>{
 
 network.interceptors.response.use((response)=>
 {
-  console.log(response);
   return response;
 })
 
